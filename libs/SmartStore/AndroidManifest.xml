@@ -5,9 +5,6 @@
 	android:versionCode="61"
 	android:versionName="6.2.0">
 
-    <uses-sdk android:minSdkVersion="21"
-        android:targetSdkVersion="27" />
-
 	<application>
 
         <!--  SmartStore Inspector screen -->

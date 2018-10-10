@@ -26,14 +26,14 @@
  */
 package com.salesforce.androidsdk.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 
 /**
  * Abstract base class for all Salesforce activities.
  */
-public abstract class SalesforceActivity extends Activity implements SalesforceActivityInterface {
+public abstract class SalesforceActivity extends FragmentActivity implements SalesforceActivityInterface {
 
 	private final SalesforceActivityDelegate delegate;
 
