@@ -27,8 +27,8 @@
 package com.salesforce.androidsdk.ui;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
+import androidx.fragment.app.FragmentActivity;
 
 /**
  * Abstract base class for all Salesforce activities.

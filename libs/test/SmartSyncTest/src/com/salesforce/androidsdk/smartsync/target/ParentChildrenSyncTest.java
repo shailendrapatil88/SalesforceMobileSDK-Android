@@ -40,11 +40,10 @@ import com.salesforce.androidsdk.smartsync.util.SyncState;
 import com.salesforce.androidsdk.smartsync.util.SyncUpdateCallbackQueue;
 import com.salesforce.androidsdk.util.JSONObjectHelper;
 
-import junit.framework.Assert;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -951,7 +950,6 @@ public class ParentChildrenSyncTest extends ParentChildrenSyncTestCase {
             }
         }
         checkServer(accountIdToFieldsExpectedOnServer, Constants.ACCOUNT);
-
         Map<String, Map<String, Object>> contactIdToFieldsExpectedOnServer = new HashMap<>();
         for (String id : accountIds) {
             Map<String, Map<String, Object>> contactIdToFields = accountIdContactIdToFields.get(id);
@@ -968,5 +966,4 @@ public class ParentChildrenSyncTest extends ParentChildrenSyncTestCase {
         }
         checkServer(contactIdToFieldsExpectedOnServer, Constants.CONTACT);
     }
-
 }

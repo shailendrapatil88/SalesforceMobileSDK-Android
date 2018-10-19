@@ -38,10 +38,9 @@ import com.salesforce.androidsdk.smartstore.store.IndexSpec;
 import com.salesforce.androidsdk.smartstore.store.SmartStore;
 import com.salesforce.androidsdk.ui.LoginActivity;
 
-import junit.framework.Assert;
-
 import org.json.JSONException;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -165,7 +164,7 @@ public class StoreConfigTest extends SmartStoreTestCase {
          *  @param userStore    The store to return from getSmartStore()
          */
         protected SmartStoreSDKTestManager(Context context, SmartStore userStore) {
-            super(context, null, MainActivity.class, LoginActivity.class);
+            super(context, MainActivity.class, LoginActivity.class);
             this.userStore = userStore;
         }
 

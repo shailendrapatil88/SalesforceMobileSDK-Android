@@ -40,11 +40,10 @@ import com.salesforce.androidsdk.util.EventsObservable;
 import com.salesforce.androidsdk.util.MapUtil;
 import com.salesforce.androidsdk.util.test.EventsListenerQueue;
 
-import junit.framework.Assert;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -68,7 +67,6 @@ public class UserAccountTest {
     public static final String TEST_USER_ID = "test_user_id";
     public static final String TEST_ACCOUNT_NAME = "test_accountname";
     public static final String TEST_USERNAME = "test_username";
-    public static final String TEST_CLIENT_ID = "test_client_d";
     public static final String TEST_LOGIN_URL = "https://test.salesforce.com";
     public static final String TEST_INSTANCE_URL = "https://cs1.salesforce.com";
     public static final String TEST_IDENTITY_URL = "https://test.salesforce.com";
