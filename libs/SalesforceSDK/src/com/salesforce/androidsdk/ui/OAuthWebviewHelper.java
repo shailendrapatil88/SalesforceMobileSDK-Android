@@ -41,16 +41,10 @@ import android.os.Bundle;
 import android.security.KeyChain;
 import android.security.KeyChainAliasCallback;
 import android.security.KeyChainException;
-import android.support.customtabs.CustomTabsIntent;
 import android.text.TextUtils;
-import android.webkit.ClientCertRequest;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.webkit.*;
 import android.widget.Toast;
-
+import androidx.browser.customtabs.CustomTabsIntent;
 import com.salesforce.androidsdk.R;
 import com.salesforce.androidsdk.accounts.UserAccount;
 import com.salesforce.androidsdk.accounts.UserAccountBuilder;
@@ -73,7 +67,6 @@ import com.salesforce.androidsdk.util.EventsObservable.EventType;
 import com.salesforce.androidsdk.util.MapUtil;
 import com.salesforce.androidsdk.util.SalesforceSDKLogger;
 import com.salesforce.androidsdk.util.UriFragmentParser;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -597,7 +590,7 @@ public class OAuthWebviewHelper implements KeyChainAliasCallback {
                 final PasscodeManager passcodeManager = mgr.getPasscodeManager();
                 passcodeManager.storeMobilePolicyForOrg(account, id.screenLockTimeout * 1000 * 60, id.pinLength);
                 passcodeManager.setTimeoutMs(id.screenLockTimeout * 1000 * 60);
-                boolean changeRequired = passcodeManager.setMinPasscodeLength((Activity) getContext(), id.pinLength);
+                boolean changeRequired = passcodeManager.setMinPasscodeLength(getContext(), id.pinLength);
 
                 /*
                  * Checks if a passcode already exists. If a passcode has NOT
@@ -641,7 +634,7 @@ public class OAuthWebviewHelper implements KeyChainAliasCallback {
     private class FinishAuthTask extends BaseFinishAuthFlowTask<TokenEndpointResponse> {
 
         @Override
-        protected TokenEndpointResponse performRequest(TokenEndpointResponse tr) throws Exception {
+        protected TokenEndpointResponse performRequest(TokenEndpointResponse tr) {
             try {
                 id = OAuth2.callIdentityService(
                     HttpAccess.DEFAULT, tr.idUrlWithInstance, tr.authToken);

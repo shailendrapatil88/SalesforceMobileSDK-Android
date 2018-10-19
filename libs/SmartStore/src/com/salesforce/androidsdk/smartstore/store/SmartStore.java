@@ -28,19 +28,16 @@ package com.salesforce.androidsdk.smartstore.store;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
-
+import androidx.annotation.NonNull;
 import com.salesforce.androidsdk.analytics.EventBuilderHelper;
 import com.salesforce.androidsdk.app.SalesforceSDKManager;
 import com.salesforce.androidsdk.smartstore.store.LongOperation.LongOperationType;
 import com.salesforce.androidsdk.smartstore.store.QuerySpec.QueryType;
 import com.salesforce.androidsdk.smartstore.util.SmartStoreLogger;
 import com.salesforce.androidsdk.util.JSONObjectHelper;
-
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteOpenHelper;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -439,7 +436,7 @@ public class SmartStore  {
             soupIndexMapInserts.add(values);
 
             // for create index
-			createIndexStmts.add(String.format(createIndexFormat, soupTableName, "" + i, soupTableName, columnName));;
+            createIndexStmts.add(String.format(createIndexFormat, soupTableName, "" + i, soupTableName, columnName));
 
             // for the cache
             indexSpecsToCache[i] = new IndexSpec(indexSpec.path, indexSpec.type, columnName);
@@ -462,7 +459,7 @@ public class SmartStore  {
 		}
 
         for (String createIndexStmt : createIndexStmts) {
-            db.execSQL(createIndexStmt.toString());
+            db.execSQL(createIndexStmt);
         }
 
         try {
@@ -1328,10 +1325,10 @@ public class SmartStore  {
 	            db.beginTransaction();
 	        }
 	        try {
-	            db.delete(soupTableName, getSoupEntryIdsPredicate(soupEntryIds), (String []) null);
+                db.delete(soupTableName, getSoupEntryIdsPredicate(soupEntryIds), null);
 
 				if (hasFTS(soupName)) {
-					db.delete(soupTableName + FTS_SUFFIX, getRowIdsPredicate(soupEntryIds), (String[]) null);
+                    db.delete(soupTableName + FTS_SUFFIX, getRowIdsPredicate(soupEntryIds), null);
 				}
 
 				if (usesExternalStorage(soupName) && dbOpenHelper instanceof DBOpenHelper) {
@@ -1544,7 +1541,7 @@ public class SmartStore  {
 
         private String columnType;
 
-        private Type(String columnType) {
+        Type(String columnType) {
             this.columnType = columnType;
         }
 
