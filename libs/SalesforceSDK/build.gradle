@@ -18,6 +18,7 @@ dependencies {
     api 'com.squareup.okhttp3:okhttp:3.10.0'
     api 'com.google.firebase:firebase-messaging:17.3.4'
     api 'androidx.core:core:1.0.0'
+    api 'androidx.appcompat:appcompat:1.0.0'
     api 'androidx.browser:browser:1.0.0'
     api 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-beta02'
@@ -33,44 +34,44 @@ android {
         minSdkVersion 21
     }
 
-  buildTypes {
-      debug {
-         testCoverageEnabled = true
-      }
-   }
-
-  sourceSets {
-    main {
-      manifest.srcFile 'AndroidManifest.xml'
-      java.srcDirs = ['src']
-      resources.srcDirs = ['src']
-      aidl.srcDirs = ['src']
-      renderscript.srcDirs = ['src']
-      res.srcDirs = ['res']
-      assets.srcDirs = ['assets']
+    buildTypes {
+        debug {
+            testCoverageEnabled = true
+        }
     }
-    androidTest.setRoot('../test/SalesforceSDKTest')
-    androidTest {
-      java.srcDirs = ['../test/SalesforceSDKTest/src']
-      resources.srcDirs = ['../test/SalesforceSDKTest/src']
-      res.srcDirs = ['../test/SalesforceSDKTest/res']
-    }
-  }
-  defaultConfig {
-    testApplicationId "com.salesforce.androidsdk.tests"
-    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-  }
-  packagingOptions {
-    exclude 'META-INF/LICENSE'
-    exclude 'META-INF/LICENSE.txt'
-    exclude 'META-INF/DEPENDENCIES'
-    exclude 'META-INF/NOTICE'
-  }
 
-  lintOptions {
-    xmlReport true
-    abortOnError false
-  }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+        androidTest.setRoot('../test/SalesforceSDKTest')
+        androidTest {
+            java.srcDirs = ['../test/SalesforceSDKTest/src']
+            resources.srcDirs = ['../test/SalesforceSDKTest/src']
+            res.srcDirs = ['../test/SalesforceSDKTest/res']
+        }
+    }
+    defaultConfig {
+        testApplicationId "com.salesforce.androidsdk.tests"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+    }
+
+    lintOptions {
+        xmlReport true
+        abortOnError false
+    }
 }
 
 install {
@@ -132,7 +133,7 @@ bintray {
         labels = ['android', 'salesforce', 'mobilesdk']
         version {
             name = '7.0.0'
-            released  = new Date()
+            released = new Date()
             vcsTag = 'v7.0.0'
         }
     }
