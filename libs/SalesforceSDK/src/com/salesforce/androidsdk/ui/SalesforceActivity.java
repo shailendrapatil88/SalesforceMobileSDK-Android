@@ -28,6 +28,7 @@ package com.salesforce.androidsdk.ui;
 
 import android.os.Bundle;
 import android.view.KeyEvent;
+import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

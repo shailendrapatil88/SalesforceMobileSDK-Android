@@ -29,7 +29,6 @@ package com.salesforce.androidsdk.push;
 import android.content.Context;
 import android.content.Intent;
 import androidx.core.app.JobIntentService;
-
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.salesforce.androidsdk.accounts.UserAccount;
